@@ -68,8 +68,8 @@ namespace Results
         {
             get
             {
-                return 0.002083 * Math.Pow((100.0 / m_Pipe.HwCoefficient), 1.85) * Math.Pow(ProjectSpec.FlowRateGpm, 1.85) * 
-                    (SectionLength / (Math.Pow(PipeSpecs.InnerDiameter, 4.8655)));
+                return 0.002083 * SectionLength * Math.Pow((100.0 / m_Pipe.HwCoefficient), 1.85) * 
+                    (Math.Pow(ProjectSpec.FlowRateGpm, 1.85) / Math.Pow(PipeSpecs.InnerDiameter, 4.8655));
             }
         }
     }
