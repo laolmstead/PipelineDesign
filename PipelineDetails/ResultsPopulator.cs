@@ -8,11 +8,17 @@ namespace Results
 {
     public class ResultsPopulator
     {
-        private PipeSectionResults m_PipeSectionResults;
 
-        public ResultsPopulator(PipeSectionResults pipeSectionResults)
+        public ResultsPopulator()
         {
-            m_PipeSectionResults = pipeSectionResults;
+
+        }
+
+        public ProjectResults Populate()
+        {
+            ProjectResults projectResults = new ProjectResults();
+
+            return projectResults;
         }
     }
 }

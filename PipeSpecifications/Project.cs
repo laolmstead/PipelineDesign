@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Specifications.SpecificationsPipe;
+using Specifications.SpecificationsPump;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +10,23 @@ namespace Specifications
 {
     public class Project
     {
-        private double m_dFlowRateGpm;
-        private double m_dTotalPipeLength;
-        private double m_dFluidDensity;
+        private List<PipeCrossSection> m_PipeList;
+        private List<Pump> m_PumpList;
 
-        public double FlowRateGpm
+        public Project()
         {
-            get { return m_dFlowRateGpm; }
-            set { m_dFlowRateGpm = value; }
+            m_PipeList = new List<PipeCrossSection>();
+            m_PumpList = new List<Pump>();
         }
 
-        public double TotalPipeLength
+        public List<PipeCrossSection> PipeList
         {
-            get { return m_dTotalPipeLength; }
-            set { m_dTotalPipeLength = value; }
+            get { return m_PipeList; }
         }
 
-        public double FluidDensity
+        public List<Pump> PumpList
         {
-            get { return m_dFluidDensity; }
-            set { m_dFluidDensity = value; }
+            get { return m_PumpList; }
         }
     }
 }

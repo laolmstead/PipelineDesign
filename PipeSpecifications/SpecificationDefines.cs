@@ -21,6 +21,8 @@ namespace Specifications
         public static int Brass = 130;
     }
 
+    public static class 
+
     public static class FluidDensity
     {
         public static double Water = 62.4;

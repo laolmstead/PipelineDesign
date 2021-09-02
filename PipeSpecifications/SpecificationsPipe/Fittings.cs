@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Specifications
+namespace Specifications.SpecificationsPipe
 {
     public class Fittings
     {
-        private string m_sItemName;
+        private string m_sFittingName;
         private int m_iLossCoefficient;
         private double m_dEquivalentLength;
 
-        public string ItemName
+        public string FittingName
         {
-            get { return m_sItemName; }
-            set { m_sItemName = value; }
+            get { return m_sFittingName; }
+            set { m_sFittingName = value; }
         }
 
         public int LossCoefficient

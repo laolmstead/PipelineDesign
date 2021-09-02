@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Specifications
+namespace Specifications.SpecificationsPipe
 {
-    public abstract class Pipe
+    public abstract class PipeCrossSection
     {
         private int m_iNominalDiameter;
         private double m_dInnerDiameter;

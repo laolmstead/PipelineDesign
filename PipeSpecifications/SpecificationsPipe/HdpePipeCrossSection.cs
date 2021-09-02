@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Specifications
+namespace Specifications.SpecificationsPipe
 {
-    public class HdpePipe : Pipe
+    public class HdpePipeCrossSection : PipeCrossSection
     {
         private int m_iDrRating;
         private HdpePipeType m_Type;
 
-        public HdpePipe(int iDiameter)
+        public HdpePipeCrossSection(int iDiameter)
         {
             HwCoefficient = HazenWilliamsCoefficient.Hdpe;
             NominalDiameter = iDiameter;
