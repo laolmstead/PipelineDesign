@@ -8,16 +8,30 @@ namespace Specifications.SpecificationsPipe
 {
     public class PipeSection
     {
+        private string m_sDescription;
+        private PipeHeadLossType m_HeadLossType;
         private double m_dStartStaion;
         private double m_dEndStation;
         private double m_dStartElevation;
         private double m_dEndElevation;
         private PipeCrossSection m_PipeCrossSection;
-        private List<Fittings> m_FittingsList;
+        private List<Fitting> m_FittingsList;
 
         public PipeSection()
         {
-            m_FittingsList = new List<Fittings>();
+            m_FittingsList = new List<Fitting>();
+        }
+
+        public string Description
+        {
+            get { return m_sDescription; }
+            set { m_sDescription = value; }
+        }
+
+        public PipeHeadLossType HeadLossType
+        {
+            get { return m_HeadLossType; }
+            set { m_HeadLossType = value; }
         }
 
         public double StartStation
@@ -50,7 +64,7 @@ namespace Specifications.SpecificationsPipe
             set { m_PipeCrossSection = value; }
         }
 
-        public List<Fittings> FittingsList
+        public List<Fitting> FittingsList
         {
             get { return m_FittingsList; }
         }

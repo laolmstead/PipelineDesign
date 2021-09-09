@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Results
+namespace ResultsApi
 {
     public class ProjectResults
     {

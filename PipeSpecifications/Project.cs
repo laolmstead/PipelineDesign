@@ -1,4 +1,5 @@
-﻿using Specifications.SpecificationsPipe;
+﻿using Specifications.SpecificationProperties;
+using Specifications.SpecificationsPipe;
 using Specifications.SpecificationsPump;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,25 @@ namespace Specifications
 {
     public class Project
     {
-        private List<PipeCrossSection> m_PipeList;
+        private FluidProperties m_FluidProperties;
+        private List<PipeSection> m_PipeSectionList;
         private List<Pump> m_PumpList;
 
         public Project()
         {
-            m_PipeList = new List<PipeCrossSection>();
+            m_FluidProperties = new FluidProperties();
+            m_PipeSectionList = new List<PipeSection>();
             m_PumpList = new List<Pump>();
         }
 
-        public List<PipeCrossSection> PipeList
+        public FluidProperties Fluid
         {
-            get { return m_PipeList; }
+            get { return m_FluidProperties; }
+        }
+
+        public List<PipeSection> PipeSectionList
+        {
+            get { return m_PipeSectionList; }
         }
 
         public List<Pump> PumpList

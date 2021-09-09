@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Specifications.SpecificationsPipe
 {
-    public class Fittings
+    public class Fitting
     {
         private string m_sFittingName;
         private int m_iLossCoefficient;
