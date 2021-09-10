@@ -71,18 +71,17 @@ namespace ResultsApi
                 // Calculate pipe head loss
                 double dSectionEquivalentLength = dEquivalentLength + (section.EndStation - section.StartStation);
 
-                if (section.HeadLossType == PipeHeadLossType.PipeEntrance)
+                switch (section.HeadLossType)
                 {
-                    pipeSectionResults.HeadLoss = 0.00129 * Math.Pow(Fluid.FlowRateGpm, 2) * Math.Pow(crossSection.InnerDiameter, 4);
-                }
-                else if (section.HeadLossType == PipeHeadLossType.PipeSection)
-                {
-                    pipeSectionResults.HeadLoss = 0.002083 * Math.Pow((100.0 / crossSection.HwCoefficient), 1.85) * Math.Pow(Fluid.FlowRateGpm, 1.85) * 
+                    case (PipeHeadLossType.PipeEntrance):
+                        pipeSectionResults.HeadLoss = 0.00129 * Math.Pow(Fluid.FlowRateGpm, 2) * Math.Pow(crossSection.InnerDiameter, 4);
+                        break;
+                    case (PipeHeadLossType.PipeSection):
+                        pipeSectionResults.HeadLoss = 0.002083 * Math.Pow((100.0 / crossSection.HwCoefficient), 1.85) * Math.Pow(Fluid.FlowRateGpm, 1.85) *
                                     dSectionEquivalentLength / (Math.Pow(crossSection.InnerDiameter, 4.8655));
-                }
-                else
-                {
-                    return false;
+                        break;
+                    default:
+                        break;
                 }
             }
 
