@@ -12,6 +12,11 @@ namespace ResultsApi
         private double m_dPipelinePressure;
         private double m_dEnergyGradeLine;
 
+        public EnergyResults()
+        {
+
+        }
+
         public double HydraulicGradeLine
         {
             get { return m_dHydraulicGradeLine; }

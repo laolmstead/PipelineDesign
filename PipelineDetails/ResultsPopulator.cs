@@ -12,19 +12,19 @@ namespace ResultsApi
     public class ResultsPopulator
     {
         // Data
-        private Project m_Project;
+        private ProjectData m_ProjectData;
         private double m_TotalPipeLength;
 
-        public ResultsPopulator(Project project)
+        public ResultsPopulator(ProjectData projectData)
         {
-            m_Project = project;
+            m_ProjectData = projectData;
         }
 
         public FluidProperties Fluid
         {
             get
             {
-                return m_Project.Fluid;
+                return m_ProjectData.Fluid;
             }
         }
 
@@ -34,7 +34,7 @@ namespace ResultsApi
             {
                 m_TotalPipeLength = 0.0;
 
-                foreach (PipeSection section in m_Project.PipeSectionList)
+                foreach (PipeSection section in m_ProjectData.PipeSectionList)
                 {
                     m_TotalPipeLength += (section.EndStation - section.StartStation);
                 }
@@ -47,16 +47,14 @@ namespace ResultsApi
         {
             bool bRet = true;
 
-            PipeSectionResults pipeSectionResults = new PipeSectionResults();
-
-            bRet &= PopulatePipeSectionResults(pipeSectionResults);
+            bRet &= PopulatePipeSectionResults(projectResults.PipeSection);
 
             return bRet;
         }
 
         public bool PopulatePipeSectionResults(PipeSectionResults pipeSectionResults)
         {
-            foreach (PipeSection section in m_Project.PipeSectionList)
+            foreach (PipeSection section in m_ProjectData.PipeSectionList)
             {
                 PipeCrossSection crossSection = section.CrossSection;
 
@@ -83,6 +81,8 @@ namespace ResultsApi
                     default:
                         break;
                 }
+
+                pipeSectionResults.Velocity = (Math.PI / 4.0) * Math.Pow((crossSection.InnerDiameter / 12), 4.0);
             }
 
             return true;

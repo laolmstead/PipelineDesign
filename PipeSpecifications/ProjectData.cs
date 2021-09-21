@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Specifications
 {
-    public class Project
+    public class ProjectData
     {
         private FluidProperties m_FluidProperties;
         private List<PipeSection> m_PipeSectionList;
         private List<Pump> m_PumpList;
 
-        public Project()
+        public ProjectData()
         {
             m_FluidProperties = new FluidProperties();
             m_PipeSectionList = new List<PipeSection>();

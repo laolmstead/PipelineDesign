@@ -12,6 +12,11 @@ namespace Specifications.SpecificationsPipe
         private int m_iLossCoefficient;
         private double m_dEquivalentLength;
 
+        public Fitting()
+        {
+
+        }
+
         public string FittingName
         {
             get { return m_sFittingName; }

@@ -15,6 +15,11 @@ namespace Specifications.SpecificationsPipe
         private int m_iHwCoefficient;
         private double m_dCostPerFt;
 
+        public PipeCrossSection()
+        {
+
+        }
+
         public int NominalDiameter
         {
             get { return m_iNominalDiameter; }
