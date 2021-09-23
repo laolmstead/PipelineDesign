@@ -10,6 +10,8 @@ namespace ResultsApi
     public class ProjectResults
     {
         private double m_dTotalLength;
+        private double m_dHighPointElevation;
+        private double m_dFrictionLossToHighPoint;
         private PipeSectionResults m_PipeSectionResults;
         private EnergyResults m_EnergyResults;
 
@@ -23,6 +25,18 @@ namespace ResultsApi
         {
             get { return m_dTotalLength; }
             set { m_dTotalLength = value; }
+        }
+
+        public double HighPointElevation
+        {
+            get { return m_dHighPointElevation; }
+            set { m_dHighPointElevation = value; }
+        }
+
+        public double FrictionLossToHighPoint
+        {
+            get { return m_dFrictionLossToHighPoint; }
+            set { m_dFrictionLossToHighPoint = value; }
         }
 
         public PipeSectionResults PipeSection

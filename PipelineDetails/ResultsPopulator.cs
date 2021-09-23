@@ -13,7 +13,6 @@ namespace ResultsApi
     {
         // Data
         private ProjectData m_ProjectData;
-        private double m_TotalPipeLength;
 
         public ResultsPopulator(ProjectData projectData)
         {
@@ -28,24 +27,11 @@ namespace ResultsApi
             }
         }
 
-        public double TotalPipeLength
-        {
-            get
-            {
-                m_TotalPipeLength = 0.0;
-
-                foreach (PipeSection section in m_ProjectData.PipeSectionList)
-                {
-                    m_TotalPipeLength += (section.EndStation - section.StartStation);
-                }
-
-                return m_TotalPipeLength;
-            }
-        }
-
         public bool Populate(ProjectResults projectResults)
         {
             bool bRet = true;
+
+            projectResults.TotalLength = CalculateTotalPipeLength(projectResults.PipeSection);
 
             bRet &= PopulatePipeSectionResults(projectResults.PipeSection);
 
@@ -82,10 +68,23 @@ namespace ResultsApi
                         break;
                 }
 
+                // Set velocity for each section of pip
                 pipeSectionResults.Velocity = (Math.PI / 4.0) * Math.Pow((crossSection.InnerDiameter / 12), 4.0);
             }
 
             return true;
+        }
+
+        private double CalculateTotalPipeLength(PipeSectionResults pipeSectionResults)
+        {
+            double dTotalLength = 0.0;
+
+            foreach (PipeSection section in m_ProjectData.PipeSectionList)
+            {
+                dTotalLength += (section.EndStation - section.StartStation);
+            }
+
+            return dTotalLength;
         }
     }
 }
