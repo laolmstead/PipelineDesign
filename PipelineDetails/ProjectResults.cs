@@ -11,7 +11,10 @@ namespace ResultsApi
     {
         private double m_dTotalLength;
         private double m_dHighPointElevation;
+        private double m_dDischargeElevation;
+        private double m_dMaxPumpStationWaterElevation;
         private double m_dFrictionLossToHighPoint;
+        private double m_dFrictionLossToEndOfPipe;
         private PipeSectionResults m_PipeSectionResults;
         private EnergyResults m_EnergyResults;
 
@@ -33,10 +36,33 @@ namespace ResultsApi
             set { m_dHighPointElevation = value; }
         }
 
+        public double DischargeElevation
+        {
+            get { return m_dDischargeElevation; }
+            set { m_dDischargeElevation = value; }
+        }
+
+        public double MaxWaterLevelAtPumpStation
+        {
+            get { return m_dMaxPumpStationWaterElevation; }
+            set { m_dMaxPumpStationWaterElevation = value; }
+        }
+
         public double FrictionLossToHighPoint
         {
             get { return m_dFrictionLossToHighPoint; }
             set { m_dFrictionLossToHighPoint = value; }
+        }
+
+        public double FrictionLossToEndOfPipe
+        {
+            get { return m_dFrictionLossToEndOfPipe; }
+            set { m_dFrictionLossToEndOfPipe = value; }
+        }
+
+        public double StaticHead
+        {
+            get { return m_dDischargeElevation - m_dMaxPumpStationWaterElevation; }
         }
 
         public PipeSectionResults PipeSection
