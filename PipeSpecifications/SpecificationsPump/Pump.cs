@@ -12,6 +12,11 @@ namespace Specifications.SpecificationsPump
         private double m_dMotorBhp;
         private double m_dUnitCost;
 
+        public Pump()
+        {
+
+        }
+
         public double PumpBhp
         {
             get { return m_dPumpBhp; }

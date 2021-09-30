@@ -8,7 +8,7 @@ namespace Specifications.SpecificationsPipe
 {
     public abstract class PipeCrossSection
     {
-        private int m_iNominalDiameter;
+        private double m_dNominalDiameter;
         private double m_dInnerDiameter;
         private double m_dOuterDiameter;
         private double m_dPressureRating;
@@ -20,10 +20,10 @@ namespace Specifications.SpecificationsPipe
 
         }
 
-        public int NominalDiameter
+        public double NominalDiameter
         {
-            get { return m_iNominalDiameter; }
-            set { m_iNominalDiameter = value; }
+            get { return m_dNominalDiameter; }
+            set { m_dNominalDiameter = value; }
         }
 
         public double InnerDiameter

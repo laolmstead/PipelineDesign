@@ -75,6 +75,12 @@ namespace ResultsApi
             return true;
         }
 
+        private bool PopulatePumpResults(PumpResults pumpResults)
+        {
+
+            return true;
+        }
+
         private double CalculateTotalPipeLength(PipeSectionResults pipeSectionResults)
         {
             double dTotalLength = 0.0;

@@ -8,13 +8,20 @@ namespace ResultsApi
 {
     public class EnergyResults
     {
+        private ProjectResults m_Parent;
+
         private double m_dHydraulicGradeLine;
         private double m_dPipelinePressure;
         private double m_dEnergyGradeLine;
 
-        public EnergyResults()
+        public EnergyResults(ProjectResults parent)
         {
+            m_Parent = parent;
+        }
 
+        public ProjectResults Parent
+        {
+            get { return m_Parent; }
         }
 
         public double HydraulicGradeLine

@@ -16,12 +16,14 @@ namespace ResultsApi
         private double m_dFrictionLossToHighPoint;
         private double m_dFrictionLossToEndOfPipe;
         private PipeSectionResults m_PipeSectionResults;
+        private PumpResults m_PumpResults;
         private EnergyResults m_EnergyResults;
 
         public ProjectResults()
         {
-            m_EnergyResults = new EnergyResults();
-            m_PipeSectionResults = new PipeSectionResults();
+            m_PipeSectionResults = new PipeSectionResults(this);
+            m_PumpResults = new PumpResults(this);
+            m_EnergyResults = new EnergyResults(this);
         }
 
         public double TotalLength
@@ -65,10 +67,21 @@ namespace ResultsApi
             get { return m_dDischargeElevation - m_dMaxPumpStationWaterElevation; }
         }
 
+        public double Tdh
+        {
+            get { return this.StaticHead + this.FrictionLossToEndOfPipe; }
+        }
+
         public PipeSectionResults PipeSection
         {
             get { return m_PipeSectionResults; }
             set { m_PipeSectionResults = value; }
+        }
+
+        public PumpResults Pump
+        {
+            get { return m_PumpResults; }
+            set { m_PumpResults = value; }
         }
 
         public EnergyResults Energy
