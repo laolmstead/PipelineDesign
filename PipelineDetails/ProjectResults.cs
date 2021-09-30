@@ -15,13 +15,13 @@ namespace ResultsApi
         private double m_dMaxPumpStationWaterElevation;
         private double m_dFrictionLossToHighPoint;
         private double m_dFrictionLossToEndOfPipe;
-        private PipeSectionResults m_PipeSectionResults;
+        private IList<PipeSectionResults> m_PipeSectionResults;    // convert to list
         private PumpResults m_PumpResults;
         private EnergyResults m_EnergyResults;
 
         public ProjectResults()
         {
-            m_PipeSectionResults = new PipeSectionResults(this);
+            m_PipeSectionResults = new List<PipeSectionResults>();
             m_PumpResults = new PumpResults(this);
             m_EnergyResults = new EnergyResults(this);
         }
@@ -72,7 +72,7 @@ namespace ResultsApi
             get { return this.StaticHead + this.FrictionLossToEndOfPipe; }
         }
 
-        public PipeSectionResults PipeSection
+        public IList<PipeSectionResults> PipeSectionList
         {
             get { return m_PipeSectionResults; }
             set { m_PipeSectionResults = value; }

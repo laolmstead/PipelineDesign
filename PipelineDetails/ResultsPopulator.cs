@@ -31,9 +31,12 @@ namespace ResultsApi
         {
             bool bRet = true;
 
-            projectResults.TotalLength = CalculateTotalPipeLength(projectResults.PipeSection);
+            projectResults.TotalLength = CalculateTotalPipeLength();
 
-            bRet &= PopulatePipeSectionResults(projectResults.PipeSection);
+            foreach (PipeSectionResults pipeSectionResults in projectResults.PipeSectionList)
+            {
+                bRet &= PopulatePipeSectionResults(pipeSectionResults);
+            }
 
             return bRet;
         }
@@ -43,6 +46,7 @@ namespace ResultsApi
             foreach (PipeSection section in m_ProjectData.PipeSectionList)
             {
                 PipeCrossSection crossSection = section.CrossSection;
+                PopulateCrossSection(crossSection, pipeSectionResults.CrossSectionResults);
 
                 // Calculate minor losses from fittings
                 double dEquivalentLength = 0.0;
@@ -50,6 +54,11 @@ namespace ResultsApi
                 foreach (Fitting fitting in section.FittingsList)
                 {
                     dEquivalentLength += (fitting.LossCoefficient * crossSection.NominalDiameter / 12.0);
+
+                    // Add fitting to fitting result list
+                    FittingResults fittingResults = new FittingResults();
+                    PopulateFitting(fitting, fittingResults);
+                    pipeSectionResults.FittingResults.Add(fittingResults);
                 }
 
                 // Calculate pipe head loss
@@ -81,7 +90,34 @@ namespace ResultsApi
             return true;
         }
 
-        private double CalculateTotalPipeLength(PipeSectionResults pipeSectionResults)
+        private bool PopulateCrossSection(PipeCrossSection pipeCrossSection, PipeCrossSectionResults pipeCrossSectionResults)
+        {
+            pipeCrossSectionResults.NominalDiameter = pipeCrossSection.NominalDiameter;
+            pipeCrossSectionResults.InnerDiameter = pipeCrossSection.InnerDiameter;
+            pipeCrossSectionResults.OuterDiameter = pipeCrossSection.OuterDiameter;
+            pipeCrossSectionResults.PressureRating = pipeCrossSection.PressureRating;
+            pipeCrossSectionResults.HwCoefficient = pipeCrossSection.HwCoefficient;
+            pipeCrossSectionResults.CostPerLinearFt = pipeCrossSection.CostPerLinearFt;
+
+            return true;
+        }
+
+        private bool PopulateFitting(Fitting fitting, FittingResults fittingResults)
+        {
+            fittingResults.FittingName = fitting.FittingName;
+            fittingResults.LossCoefficient = fitting.LossCoefficient;
+            fittingResults.EquivalentLength = fitting.EquivalentLength;
+
+            return true;
+        }
+
+        private bool CalculateFrictionLossToEndOfPipe(ProjectResults results)
+        {
+
+            return true;
+        }
+
+        private double CalculateTotalPipeLength()
         {
             double dTotalLength = 0.0;
 
