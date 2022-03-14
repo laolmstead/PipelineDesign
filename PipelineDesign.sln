@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResultsApi", "PipelineDetai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PipelineDesignUnitTests", "PipelineDesignUnitTests\PipelineDesignUnitTests.csproj", "{6543D49E-276E-4327-BC4D-46AEFCDF5131}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{F925E558-08CE-4DC5-B82C-E4FAAB24696C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineDesignApi", "Models\PipelineDesignApi.csproj", "{F925E558-08CE-4DC5-B82C-E4FAAB24696C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
