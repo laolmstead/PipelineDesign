@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Models\PipelineDesignApi.csproj" />
     <ProjectReference Include="..\PipeSpecifications\Specifications.csproj" />
   </ItemGroup>
 
