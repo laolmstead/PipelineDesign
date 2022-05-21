@@ -8,31 +8,10 @@ namespace Specifications.SpecificationsPipe
 {
     public class Fitting
     {
-        private string m_sFittingName;
-        private int m_iLossCoefficient;
-        private double m_dEquivalentLength;
+        public string FittingName { get; set; }
 
-        public Fitting()
-        {
+        public int LossCoefficient { get; set; }
 
-        }
-
-        public string FittingName
-        {
-            get { return m_sFittingName; }
-            set { m_sFittingName = value; }
-        }
-
-        public int LossCoefficient
-        {
-            get { return m_iLossCoefficient; }
-            set { m_iLossCoefficient = value; }
-        }
-
-        public double EquivalentLength
-        {
-            get { return m_dEquivalentLength; }
-            set { m_dEquivalentLength = value; }
-        }
+        public double EquivalentLength { get; set; }
     }
 }

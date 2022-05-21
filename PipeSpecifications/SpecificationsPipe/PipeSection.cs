@@ -22,47 +22,19 @@ namespace Specifications.SpecificationsPipe
             m_FittingsList = new List<Fitting>();
         }
 
-        public string Description
-        {
-            get { return m_sDescription; }
-            set { m_sDescription = value; }
-        }
+        public string Description { get; set; }
 
-        public PipeHeadLossType HeadLossType
-        {
-            get { return m_HeadLossType; }
-            set { m_HeadLossType = value; }
-        }
+        public PipeHeadLossType HeadLossType { get; set; }
 
-        public double StartStation
-        {
-            get { return m_dStartStaion; }
-            set { m_dStartStaion = value; }
-        }
+        public double StartStation { get; set; }
 
-        public double EndStation
-        {
-            get { return m_dEndStation; }
-            set { m_dEndStation = value; }
-        }
+        public double EndStation { get; set; }
 
-        public double StartElevation
-        {
-            get { return m_dStartElevation; }
-            set { m_dStartElevation = value; }
-        }
+        public double StartElevation { get; set; }
 
-        public double EndElevation
-        {
-            get { return m_dEndElevation; }
-            set { m_dEndElevation = value; }
-        }
+        public double EndElevation { get; set; }
 
-        public PipeCrossSection CrossSection
-        {
-            get { return m_PipeCrossSection; }
-            set { m_PipeCrossSection = value; }
-        }
+        public PipeCrossSection CrossSection { get; set; }
 
         public List<Fitting> FittingsList
         {

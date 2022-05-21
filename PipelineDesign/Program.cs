@@ -13,9 +13,7 @@ namespace PipelineDesign
             ProjectData project = new ProjectData();
 
             // Set fluid properties
-            FluidProperties fluid = project.Fluid;
-            fluid.FlowRateGpm = 350.0;
-            fluid.FluidDensity = 62.4;
+            project.FlowRateGpm = 350.0;
 
             // Set pipe properties
             var v = project.PipeSectionList;

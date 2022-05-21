@@ -11,21 +11,16 @@ namespace Specifications
 {
     public class ProjectData
     {
-        private FluidProperties m_FluidProperties;
         private List<PipeSection> m_PipeSectionList;
         private List<Pump> m_PumpList;
 
         public ProjectData()
         {
-            m_FluidProperties = new FluidProperties();
             m_PipeSectionList = new List<PipeSection>();
             m_PumpList = new List<Pump>();
         }
 
-        public FluidProperties Fluid
-        {
-            get { return m_FluidProperties; }
-        }
+        public double FlowRateGpm { get; set; }
 
         public List<PipeSection> PipeSectionList
         {

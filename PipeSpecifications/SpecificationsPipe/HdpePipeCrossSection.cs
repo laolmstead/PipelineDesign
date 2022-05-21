@@ -8,25 +8,14 @@ namespace Specifications.SpecificationsPipe
 {
     public class HdpePipeCrossSection : PipeCrossSection
     {
-        private int m_iDrRating;
-        private HdpePipeType m_Type;
-
         public HdpePipeCrossSection(int iDiameter)
         {
             HwCoefficient = HazenWilliamsCoefficient.Hdpe;
             NominalDiameter = iDiameter;
         }
 
-        public int DrRating
-        {
-            get { return m_iDrRating; }
-            set { m_iDrRating = value; }
-        }
+        public int DrRating { get; set; }
 
-        public HdpePipeType Type
-        {
-            get { return m_Type; }
-            set { m_Type = value; }
-        }
+        public HdpePipeType Type { get; set; }
     }
 }
