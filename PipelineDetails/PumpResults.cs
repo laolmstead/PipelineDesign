@@ -9,10 +9,6 @@ namespace ResultsApi
     public class PumpResults
     {
         private ProjectResults m_Parent;
-        private double m_dTdhRequired;
-        private double m_dFlowPerPump;
-        private double m_dPumpBhp;
-        private double m_dMotorBhp;
 
         public PumpResults(ProjectResults parent)
         {
@@ -24,28 +20,12 @@ namespace ResultsApi
             get { return m_Parent; }
         }
 
-        public double TdhRequired
-        {
-            get { return m_dTdhRequired; }
-            set { m_dTdhRequired = value; }
-        }
+        public double TdhRequired { get; set; }
 
-        public double FlowPerPump
-        {
-            get { return m_dFlowPerPump; }
-            set { m_dFlowPerPump = value; }
-        }
+        public double FlowPerPump { get; set; }
 
-        public double PumpBhp
-        {
-            get { return m_dPumpBhp; }
-            set { m_dPumpBhp = value; }
-        }
+        public double PumpBhp { get; set; }
 
-        public double MotorBhp
-        {
-            get { return m_dMotorBhp; }
-            set { m_dMotorBhp = value; }
-        }
+        public double MotorBhp { get; set; }
     }
 }

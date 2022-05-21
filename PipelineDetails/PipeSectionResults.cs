@@ -9,12 +9,6 @@ namespace ResultsApi
     public class PipeSectionResults
     {
         private ProjectResults m_Parent;
-        private double m_dHeadLoss;
-        private double m_dVelocity;
-        private double m_dStartStaion;
-        private double m_dEndStation;
-        private double m_dStartElevation;
-        private double m_dEndElevation;
         private PipeCrossSectionResults m_PipeCrossSectionResults;
         private IList<FittingResults> m_FittingResults;
 
@@ -31,41 +25,17 @@ namespace ResultsApi
             get { return m_Parent; }
         }
 
-        public double HeadLoss
-        {
-            get { return m_dHeadLoss; }
-            set { m_dHeadLoss = value; }
-        }
+        public double HeadLoss { get; set; }
 
-        public double Velocity
-        {
-            get { return m_dVelocity; }
-            set { m_dVelocity = value; }
-        }
+        public double Velocity { get; set; }
 
-        public double StartStation
-        {
-            get { return m_dStartStaion; }
-            set { m_dStartStaion = value; }
-        }
+        public double StartStation { get; set; }
 
-        public double EndStation
-        {
-            get { return m_dEndStation; }
-            set { m_dEndStation = value; }
-        }
+        public double EndStation { get; set; }
 
-        public double StartElevation
-        {
-            get { return m_dStartElevation; }
-            set { m_dStartElevation = value; }
-        }
+        public double StartElevation { get; set; }
 
-        public double EndElevation
-        {
-            get { return m_dEndElevation; }
-            set { m_dEndElevation = value; }
-        }
+        public double EndElevation { get; set; }
 
         public PipeCrossSectionResults CrossSectionResults
         {

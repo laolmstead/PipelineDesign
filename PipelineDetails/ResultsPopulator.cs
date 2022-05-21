@@ -19,14 +19,6 @@ namespace ResultsApi
             m_ProjectData = projectData;
         }
 
-        public FluidProperties Fluid
-        {
-            get
-            {
-                return m_ProjectData.Fluid;
-            }
-        }
-
         public bool Populate(ProjectResults projectResults)
         {
             bool bRet = true;
@@ -67,10 +59,10 @@ namespace ResultsApi
                 switch (section.HeadLossType)
                 {
                     case (PipeHeadLossType.PipeEntrance):
-                        pipeSectionResults.HeadLoss = 0.00129 * Math.Pow(Fluid.FlowRateGpm, 2) * Math.Pow(crossSection.InnerDiameter, 4);
+                        pipeSectionResults.HeadLoss = 0.00129 * Math.Pow(m_ProjectData.FlowRateGpm, 2) * Math.Pow(crossSection.InnerDiameter, 4);
                         break;
                     case (PipeHeadLossType.PipeSection):
-                        pipeSectionResults.HeadLoss = 0.002083 * Math.Pow((100.0 / crossSection.HwCoefficient), 1.85) * Math.Pow(Fluid.FlowRateGpm, 1.85) *
+                        pipeSectionResults.HeadLoss = 0.002083 * Math.Pow((100.0 / crossSection.HwCoefficient), 1.85) * Math.Pow(m_ProjectData.FlowRateGpm, 1.85) *
                                     dSectionEquivalentLength / (Math.Pow(crossSection.InnerDiameter, 4.8655));
                         break;
                     default:

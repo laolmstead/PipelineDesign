@@ -9,12 +9,6 @@ namespace ResultsApi
 {
     public class ProjectResults
     {
-        private double m_dTotalLength;
-        private double m_dHighPointElevation;
-        private double m_dDischargeElevation;
-        private double m_dMaxPumpStationWaterElevation;
-        private double m_dFrictionLossToHighPoint;
-        private double m_dFrictionLossToEndOfPipe;
         private IList<PipeSectionResults> m_PipeSectionResults;    // convert to list
         private PumpResults m_PumpResults;
         private EnergyResults m_EnergyResults;
@@ -26,45 +20,21 @@ namespace ResultsApi
             m_EnergyResults = new EnergyResults(this);
         }
 
-        public double TotalLength
-        {
-            get { return m_dTotalLength; }
-            set { m_dTotalLength = value; }
-        }
+        public double TotalLength { get; set; }
 
-        public double HighPointElevation
-        {
-            get { return m_dHighPointElevation; }
-            set { m_dHighPointElevation = value; }
-        }
+        public double HighPointElevation { get; set; }
 
-        public double DischargeElevation
-        {
-            get { return m_dDischargeElevation; }
-            set { m_dDischargeElevation = value; }
-        }
+        public double DischargeElevation { get; set; }
 
-        public double MaxWaterLevelAtPumpStation
-        {
-            get { return m_dMaxPumpStationWaterElevation; }
-            set { m_dMaxPumpStationWaterElevation = value; }
-        }
+        public double MaxWaterLevelAtPumpStation { get; set; }
 
-        public double FrictionLossToHighPoint
-        {
-            get { return m_dFrictionLossToHighPoint; }
-            set { m_dFrictionLossToHighPoint = value; }
-        }
+        public double FrictionLossToHighPoint { get; set; }
 
-        public double FrictionLossToEndOfPipe
-        {
-            get { return m_dFrictionLossToEndOfPipe; }
-            set { m_dFrictionLossToEndOfPipe = value; }
-        }
+        public double FrictionLossToEndOfPipe { get; set; }
 
         public double StaticHead
         {
-            get { return m_dDischargeElevation - m_dMaxPumpStationWaterElevation; }
+            get { return DischargeElevation - m_dMaxPumpStationWaterElevation; }
         }
 
         public double Tdh
@@ -75,7 +45,6 @@ namespace ResultsApi
         public IList<PipeSectionResults> PipeSectionList
         {
             get { return m_PipeSectionResults; }
-            set { m_PipeSectionResults = value; }
         }
 
         public PumpResults Pump
