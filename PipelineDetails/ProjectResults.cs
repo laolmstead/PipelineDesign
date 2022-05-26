@@ -34,7 +34,7 @@ namespace ResultsApi
 
         public double StaticHead
         {
-            get { return DischargeElevation - m_dMaxPumpStationWaterElevation; }
+            get { return DischargeElevation - MaxWaterLevelAtPumpStation; }
         }
 
         public double Tdh
